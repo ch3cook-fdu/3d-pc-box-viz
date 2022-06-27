@@ -1,5 +1,5 @@
 # pc_det_visualization
-Tools for pointcloud object detection built on open3d
+Tools for visualizing pointcloud object detection results built on open3d
 
 ## Dependency
 
