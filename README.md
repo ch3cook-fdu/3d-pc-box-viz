@@ -9,7 +9,7 @@ numpy
 ```
 
 ## Usage
-```{python}
+```python
 from visualize import visualize_mesh
 visualize_mesh(
     point_cloud = point_cloud, # [npoints x 3] or [npoints x 6, xyz+rgb] or [npoints x 9, xyz+rgb+normal]
