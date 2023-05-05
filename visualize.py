@@ -12,21 +12,21 @@ def visualize_mesh(
                       [2, 6], [3, 7], [4, 5], [5, 6], [6, 7], [7, 4]])
     visualization_group = []
     
-    if point_cloud is not None and not isinstance(point_cloud, tuple):
-        point_cloud = (point_cloud, )
-    
-    for pc in point_cloud:
-        pcd = o3d.geometry.PointCloud()
-        pcd.points = o3d.utility.Vector3dVector(pc[:, :3])
-        if pc.shape[-1] >= 6:
-            pcd.colors = o3d.utility.Vector3dVector(pc[:, 3:6])
-        else:
-            pcd.colors = o3d.utility.Vector3dVector(
-                np.ones_like(pc[:, :3]) * [0.8, 0.8, 0.8]
-            )
-        if pc.shape[-1] >= 9:
-            pcd.normals = o3d.utility.Vector3dVector(pc[:, 6:9])
-        visualization_group.append(pcd)
+    if point_cloud is not None:
+        if not isinstance(point_cloud, tuple):
+            point_cloud = (point_cloud, )
+        for pc in point_cloud:
+            pcd = o3d.geometry.PointCloud()
+            pcd.points = o3d.utility.Vector3dVector(pc[:, :3])
+            if pc.shape[-1] >= 6:
+                pcd.colors = o3d.utility.Vector3dVector(pc[:, 3:6])
+            else:
+                pcd.colors = o3d.utility.Vector3dVector(
+                    np.ones_like(pc[:, :3]) * [0.8, 0.8, 0.8]
+                )
+            if pc.shape[-1] >= 9:
+                pcd.normals = o3d.utility.Vector3dVector(pc[:, 6:9])
+            visualization_group.append(pcd)
 
     if bboxes is not None:
         if not isinstance(bboxes, tuple):
