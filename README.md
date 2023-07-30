@@ -1,7 +1,5 @@
 # pc_det_visualization
-Tools for visualizing pointcloud object detection results built on open3d/plyfile. 
-
-Suitable for bounding boxes with and w/o rotations since it purely based on the corners of a bounding box.
+Tools for visualizing pointcloud object detection results built on open3d/plyfile. `ply_helper.py` is not suitable for bounding boxes w/ rotations.
 
 ## Dependency
 ```
